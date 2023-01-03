@@ -1,5 +1,4 @@
 /// <reference types="Cypress" />
-/*
 
 //linkedin
 it("Search by Id", () => {
@@ -48,9 +47,6 @@ it.only("Search by contains Name", () => {
   cy.visit("https://www.linkedin.com/");
   cy.get('[class^="google"]');
 });
-*/
-
-//add comment
 
 it("Using Get with Find and eq", () => {
   cy.visit("https://next.privat24.ua/deposit");
