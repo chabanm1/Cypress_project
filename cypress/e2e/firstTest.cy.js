@@ -1,7 +1,5 @@
 /// <reference types="Cypress" />
 
-const { contains } = require("cypress/types/jquery");
-
 // doesn't work without clear function
 it("SHOULD", () => {
   cy.visit("https://next.privat24.ua/mobile?lang=en");
@@ -32,10 +30,25 @@ it("Check default value for deposite (USD)", () => {
   cy.get('[data-qa-value="UAH"]').should("not.be.checked");
 });
 
-it.only("mouseover", () => {
+it("Check is visible Archive link (mouseover)", () => {
   cy.visit("https://next.privat24.ua/deposit?lang=en");
   cy.contains("My deposits")
     .trigger("mouseover")
-    .get('id="archiveDeposits"')
+    .get('[id="archiveDeposits"]')
     .should("be.visible");
+});
+
+it("Check is correct attr", () => {
+  cy.visit("https://next.privat24.ua?lang=en");
+  cy.contains("Show cards")
+    .should("have.attr", "type")
+    .and("match", /button/);
+});
+
+it.only("Check is correct URL", () => {
+  cy.visit("https://next.privat24.ua?lang=en");
+  cy.url("https://next.privat24.ua?lang=en").should(
+    "eq",
+    "https://next.privat24.ua/?lang=en"
+  );
 });
