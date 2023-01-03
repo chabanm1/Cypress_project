@@ -49,7 +49,6 @@ it.only("Search by contains Name", () => {
   cy.get('[class^="google"]');
 });
 */
-// comment
 
 it("Using Get with Find and eq", () => {
   cy.visit("https://next.privat24.ua/deposit");
