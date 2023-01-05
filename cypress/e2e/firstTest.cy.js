@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import { basePage } from "../support/pages/basePage";
 import { mobileReplenishment } from "../support/pages/mobileReplenishment";
 import { transfers } from "../support/pages/transfers";
 
@@ -7,11 +8,11 @@ it("Replenishment of Ukraine mobile phone number", () => {
   mobileReplenishment.typePhoneNumber(939393933);
   /*.get('[data-qa-node="phone-number"]')
   .type(939393933)*/
-  mobileReplenishment.typeAmount(100);
+  basePage.typeAmount(100);
   /*.get('[data-qa-node="amount"]')
   .clear()
   .type(100)*/
-  mobileReplenishment.typeDebitCardData(4552331448138217, "05 / 24", 111);
+  basePage.typeDebitCardData(4552331448138217, "05 / 24", 111);
   /*.get('[data-qa-node="numberdebitSource"]')
   //.type(4552331448138217)
   //.get('[data-qa-node="expiredebitSource"]')
@@ -41,9 +42,9 @@ it("Replenishment of Ukraine mobile phone number", () => {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-it.only("Money transfer between foreign cards", () => {
+it("Money transfer between foreign cards", () => {
   cy.visit("https://next.privat24.ua/money-transfer/card?lang=en");
-  transfers.typeDebitCardData("4552331448138217", "0524", "111");
+  basePage.typeDebitCardData("4552331448138217", "0524", "111");
   /*.get('[data-qa-node="numberdebitSource"]') 
     .type(4552331448138217)
     .get('[data-qa-node="expiredebitSource"]')
@@ -63,7 +64,7 @@ it.only("Money transfer between foreign cards", () => {
     .type("Juliana")
     .get('[data-qa-node="lastNamereceiver"]')
     .type("Janssen");*/
-  transfers.typeAmount("100");
+  basePage.typeAmount("100");
   /*cy.get('[data-qa-node="amount"]')
     .type(100)*/
   transfers.chooseUSDCurrency();
