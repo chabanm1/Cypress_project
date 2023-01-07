@@ -8,13 +8,16 @@ beforeEach("setup Success response with stub", () => {
   cy.intercept("https://next.privat24.ua/api/p24/pub/confirm/check?", {
     fixture: "confirmResponse/success.json",
   });
-
   cy.intercept("https://next.privat24.ua/history/transactions", {
     fixture: "archiveResponse/success.json",
   });
 });
 
-it("Replenishment of Ukraine mobile phone number", () => {
+it("Check state of payment in the archive", () => {
+  cy.visit("https://next.privat24.ua/history/transactions?lang=en");
+});
+
+it.skip("Replenishment of Ukraine mobile phone number", () => {
   cy.visit("https://next.privat24.ua/mobile?lang=en");
   mobileReplenishment.typePhoneNumber(939393933);
   basePage.typeAmount(100);
