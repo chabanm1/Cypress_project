@@ -1,8 +1,12 @@
 /// <reference types="Cypress" />
 
+import { basePage } from "../support/pages/basePage";
+import { mobileReplenishment } from "../support/pages/mobileReplenishment";
+import { transfers } from "../support/pages/transfers";
+
 it("Replenishment of Ukraine mobile phone number", () => {
   cy.visit("https://next.privat24.ua/mobile?lang=en");
-  mobileReplenishment.typePhoneNumber("939393933");
+  mobileReplenishment.typePhoneNumber(939393933);
   /*.get('[data-qa-node="phone-number"]')
   .type(939393933)*/
   basePage.typeAmount(100);
