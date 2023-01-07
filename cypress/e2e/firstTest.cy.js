@@ -3,9 +3,14 @@ import { basePage } from "../support/pages/basePage";
 import { mobileReplenishment } from "../support/pages/mobileReplenishment";
 import { transfers } from "../support/pages/transfers";
 
+//mock
 beforeEach("setup Success response with stub", () => {
   cy.intercept("https://next.privat24.ua/api/p24/pub/confirm/check?", {
     fixture: "confirmResponse/success.json",
+  });
+
+  cy.intercept("https://next.privat24.ua/history/transactions", {
+    fixture: "archiveResponse/success.json",
   });
 });
 
