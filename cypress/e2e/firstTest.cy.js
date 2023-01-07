@@ -17,7 +17,7 @@ it("Check state of payment in the archive", () => {
   cy.visit("https://next.privat24.ua/history/transactions?lang=en");
 });
 
-it.skip("Replenishment of Ukraine mobile phone number", () => {
+it.only("Replenishment of Ukraine mobile phone number", () => {
   cy.visit("https://next.privat24.ua/mobile?lang=en");
   mobileReplenishment.typePhoneNumber(939393933);
   basePage.typeAmount(100);
